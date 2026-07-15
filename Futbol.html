@@ -59,6 +59,29 @@ border-radius:25px;
 font-size:16px;
 }
 
+/* Skeleton */
+.img-skeleton {
+  background: linear-gradient(
+    90deg,
+    #1a1a1a 25%,
+    #2a2a2a 50%,
+    #1a1a1a 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+.img-cargada {
+  animation: none;
+  background: none;
+}
+
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+
 /* CONTADOR */
 
 .count{
@@ -187,6 +210,10 @@ onkeyup="searchProducts()">
 <div class="count">
 26 Productos
 </div>
+<!--<img src="Cr7.png" class="img-skeleton">
+<img src="Futbol/Pedri.jpg" class="img-skeleton">
+<img src="Futbol/Barcelonagris.jpg" class="img-skeleton">
+<img src="Futbol/Barcelona.jpg" class="img-skeleton">-->
 
 <section class="products">
 
@@ -197,7 +224,7 @@ onclick="location.href='CR7.html'">
 EXCLUSIVE
 </div>
 
-<img src="Cr7.png">
+<img src="Cr7.png" class="img-skeleton">
 
 <div class="info">
 
@@ -224,7 +251,7 @@ onclick="location.href='Pedri.html'">
 EXCLUSIVE
 </div>
 
-<img src="Futbol/Pedri.jpg">
+<img src="Futbol/Pedri.jpg" class="img-skeleton">
 
 <div class="info">
 
@@ -251,7 +278,7 @@ onclick="location.href='producto3.html'">
 20 % off
 </div>
 
-<img src="Futbol/Barcelonagris.jpg">
+<img src="Futbol/Barcelonagris.jpg" class="img-skeleton">
 
 <div class="info">
 
@@ -278,7 +305,7 @@ onclick="location.href='producto4.html'">
 EXCLUSIVE
 </div>
 
-<img src="Futbol/Barcelona.jpg">
+<img src="Futbol/Barcelona.jpg" class="img-skeleton">
 
 <div class="info">
 
@@ -344,7 +371,23 @@ card.style.display="none";
 
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+  const imagenes = document.querySelectorAll('.img-skeleton');
+
+  imagenes.forEach(img => {
+    if (img.complete) {
+      img.classList.add('img-cargada');
+    } else {
+      img.addEventListener('load', () => {
+        img.classList.add('img-cargada');
+      });
+    }
+  });
+});
+
 </script>
+
+<script src="skeleton.js"></script>
 
 </body>
 </html>
