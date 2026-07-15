@@ -41,6 +41,53 @@ text-align:center;
 flex:1;
 }
 
+/*Breadcrumb*/
+
+.breadcrumb {
+  padding: 12px 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #999999;
+}
+
+.breadcrumb a {
+  color: #D4AF37;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb span {
+  color: #ffffff;
+}  -->
+ 
+/* Nuevo descuento*/
+.card {
+  position: relative;
+}
+
+.badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #D4AF37;
+  color: #000000;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+  z-index: 10;
+}
+
+.badge-nuevo {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+
 .tienda{
 font-size:22px;
 font-weight:bold;
@@ -182,6 +229,56 @@ transition:0.3s;
 transform:scale(1.02);
 }
 
+/* productos relacionados */
+
+.relacionados {
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.titulo-relacionados {
+  font-family: 'Bebas Neue', sans-serif;
+  color: #D4AF37;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.grid-relacionados {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.item-relacionado {
+  flex: 0 0 auto;
+  width: 120px;
+  text-decoration: none;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  text-align: center;
+}
+
+.item-relacionado img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid #D4AF37;
+  margin-bottom: 6px;
+}
+
+/* FOOTER */
+
+footer{
+margin-top:40px;
+background:#111;
+color:white;
+text-align:center;
+padding:25px;
+}
+
 </style>
 </head>
 <body>
@@ -207,9 +304,15 @@ Cristiano Ronaldo
 </div>
 </div>
 
-<a href="Index.html" class="search">🏠</a>
+<a href="index.html" class="search">🏠</a>
 
 </div>
+
+<nav class="breadcrumb">
+  <a href="index.html">Inicio</a> › 
+  <a href="Futbol.html">Fútbol</a> › 
+  <span>CR7</span>
+</nav>
 
 <!-- FOTO GRANDE -->
 
@@ -301,6 +404,41 @@ urbano ideal para uso diario.
 <img id="imagenExpandid11a">
 
 </div>
+
+<!-- TE PUEDE INTERESAR-->
+ 
+<div class="relacionados">
+  <h3 class="titulo-relacionados">También te puede interesar</h3>
+  <div class="grid-relacionados">
+    <a href="Pedri.html" class="item-relacionado">
+      <img src="Futbol/pedri.jpg">
+      <span>Pedri</span>
+    </a>
+    
+      <a href="messi.html" class="item-relacionado">
+      <img src="Futbol/messi10.jpg">
+      <span>Pedri</span>
+      
+      <a href="messi.html" class="item-relacionado">
+      <img src="Futbol/Barcelona.jpg">
+      <span>Pedri</span>
+    <!-- Agrega más productos aquí -->
+  </div>
+</div>
+
+<footer>
+
+<h3>SPORT LIFE</h3>
+
+<p>
+Accesorios Deportivos • Gorras • Perfumes • Fitness
+</p>
+
+<p>
+© 2026 Todos los derechos reservados
+</p>
+
+</footer>
 
 <script>
 

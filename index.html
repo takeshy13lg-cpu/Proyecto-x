@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sport Life</title>
+<link rel="stylesheet" href="style.css">
 
 <style>
 
@@ -19,6 +20,62 @@ display:flex;
 overflow-x:auto;
 gap:20px;
 padding:15px;
+}
+
+#campoBusqueda {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px 16px;
+  border: 2px solid #D4AF37;
+  border-radius: 8px;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+#campoBusqueda:focus {
+  border-color: #FFD700;
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+}
+
+#campoBusqueda::placeholder {
+  color: #999999;
+}
+
+#resultadosBusqueda {
+  max-width: 400px;
+  margin-top: 4px;
+  background-color: #1a1a1a;
+  border: 1px solid #D4AF37;
+  border-radius: 8px;
+  overflow: hidden;
+  max-height: 300px;
+  overflow-y: auto;
+  position: absolute;
+  z-index: 1000;
+}
+
+.resultado-item {
+  display: block;
+  padding: 10px 16px;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  border-bottom: 1px solid #333333;
+  transition: background-color 0.2s ease;
+}
+
+.resultado-item:last-child {
+  border-bottom: none;
+}
+
+.resultado-item:hover {
+  background-color: #D4AF37;
+  color: #000000;
 }
 
 .circle{
@@ -67,6 +124,30 @@ font-size:30px;
 text-align:center
 }
 
+/* hero banner */
+.hero-banner {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.hero-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.hero-img.activa {
+  opacity: 1;
+}
+ 
+ /* categorias */
  
 .categorias{
 display:grid;
@@ -152,6 +233,58 @@ padding:20px;
 grid-template-columns:repeat(4,1fr);
 }
 
+ <!-- testimonios 
+
+.testimonios {
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.titulo-testimonios {
+  font-family: 'Bebas Neue', sans-serif;
+  color: #D4AF37;
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+.grid-testimonios {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.testimonio-card {
+  flex: 0 0 auto;
+  width: 220px;
+  background-color: #1a1a1a;
+  border: 1px solid #D4AF37;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: left;
+}
+
+.estrellas {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.texto-testimonio {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #ffffff;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.nombre-cliente {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: #999999;
+  font-weight: 600;
+} -->  
+
+
 footer{
 background:black;
 color:white;
@@ -159,9 +292,27 @@ padding:30px;
 text-align:center;
 }
 
-
-
+/* Espaciado entre secciones principales */
+.hero-banner,
+.categorias,
+.beneficios,
+.relacionados,
+.testimonios {
+  margin-bottom: 40px;
 }
+
+/* Más espacio en pantallas grandes */
+@media (min-width: 768px) {
+  .hero-banner,
+  .categorias,
+  .beneficios,
+  .relacionados,
+  .testimonios {
+    margin-bottom: 60px;
+  }
+}
+
+
 </style>
 </head>
 <body>
@@ -171,9 +322,9 @@ text-align:center;
 SPORT LIFE
 </div>
 
-<div class="search-box">
-<input type="text" id="searchInput" placeholder="Buscar...">
-<button onclick="buscar()">🔍</button>
+<div class="buscador">
+  <input type="text" id="campoBusqueda" placeholder="Buscar...">
+  <div id="resultadosBusqueda" style="display:none;"></div>
 </div>
 
 </header> 
@@ -229,10 +380,19 @@ SPORT LIFE
 <img src="Portadas/perfumes2.jpg">
 <span>Perfumes</span>
 </a>
-
 </section>
 
-<section class="hero">
+<div class="hero-banner">
+  <img src="Portadas/Tienda.png" class="hero-img activa">
+<!-- <img src="Portadas/bsk.jpg" class="hero-img"> --->
+  <img src="Portadas/Diorportada.jpg" class="hero-img">
+   <img src="Portadas/Zapatos1.jpg" class="hero-img">
+    <img src="Portadas/Fitness1.jpg" class="hero-img">
+ <img src="Portadas/bsk.jpg" class="hero-img">
+</div>
+
+
+<!--<section class="hero">
 
 <img src="Portadas/Tienda.png">
 
@@ -244,11 +404,11 @@ SPORT LIFE
 
 <!--<a href="estilo.html" class="shop-btn">
 COMPRAR AHORA
-</a> -->
+</a> 
 
 </div>
 
-</section>
+</section> -->
 
 <section class="categorias">
 
@@ -301,11 +461,9 @@ COMPRAR AHORA
 <img src="Portadas/perfumes2.jpg">
 <div class="titulo">PERFUMES</div>
 </a>
--->
 
 </section>
 
--->
 
 <!--Video promocional-->
 
@@ -330,6 +488,29 @@ Sobre Nuestra Tienda
 </a>
 
 </div>
+
+<!--comentarios 
+<div class="testimonios">
+  <h3 class="titulo-testimonios">Lo que dicen nuestros clientes</h3>
+  <div class="grid-testimonios">
+    <div class="testimonio-card">
+      <div class="estrellas">⭐⭐⭐⭐⭐</div>
+      <p class="texto-testimonio">"Excelente calidad y llegó súper rápido. Totalmente recomendado."</p>
+      <div class="nombre-cliente">- Carlos M.</div>
+    </div>
+    <div class="testimonio-card">
+      <div class="estrellas">⭐⭐⭐⭐⭐</div>
+      <p class="texto-testimonio">"La camiseta de CR7 es idéntica a la original, muy buena atención."</p>
+      <div class="nombre-cliente">- Andrea R.</div>
+    </div>
+    <div class="testimonio-card">
+      <div class="estrellas">⭐⭐⭐⭐⭐</div>
+      <p class="texto-testimonio">"Buenos precios y variedad. Ya es mi tienda de confianza."</p>
+      <div class="nombre-cliente">- Luis F.</div>
+    </div>
+  </div>
+</div>
+-->
 
 <br>
 
@@ -371,5 +552,18 @@ target="_blank">
 
 </footer>
 
+
+<script src="buscador.js"></script>
+
+<script>
+  let indiceHero = 0;
+  const imagenesHero = document.querySelectorAll('.hero-img');
+
+  setInterval(() => {
+    imagenesHero[indiceHero].classList.remove('activa');
+    indiceHero = (indiceHero + 1) % imagenesHero.length;
+    imagenesHero[indiceHero].classList.add('activa');
+  }, 4000);
+</script>
 </body>
 </html>
